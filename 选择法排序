@@ -1,0 +1,24 @@
+/*选择法排序*/
+
+#include<stdio.h>
+int main()
+{
+	int i,j,n,flag,t;
+	int a[20];
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+	for(i=0;i<n-1;i++)					/*扫描遍数n-*/ 
+	{
+		flag=i;							/*指向最小数（把第一个作为最小数）*/ 
+		for(j=i+1;j<=n;j++)				/*每遍中要比较的个数*/ 
+			if(a[j]<a[flag]) flag=j;	/*flag指向最小数*/ 
+		t=a[i];
+		a[i]=a[flag];
+		a[flag]=t;
+	}
+	for(i=0;i<n;i++)
+		printf("%3d",a[i]);
+	printf("\n");
+	return 0;
+}
